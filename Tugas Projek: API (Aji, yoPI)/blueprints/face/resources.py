@@ -4,6 +4,7 @@ from flask_jwt_extended import jwt_required
 from blueprints import app
 import requests
 
+
 bp_face = Blueprint('face', __name__)
 api = Api(bp_face)
 class FaceDetector(Resource):
@@ -18,8 +19,9 @@ class FaceDetector(Resource):
         payload = {}
         # file = [(('imageFile', open('/path/to/file','rb')))]
         img_path = args['img_path']
-        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open(img_path,'rb'))]).json()
+        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open('/home/alta18/Documents/PROJEK/Media/'+img_path,'rb'))]).json()
         val= res['PeopleWithAge'][0]['Age']
-        return {'age':(int(val))}, 200
+        # return {'age':(int(val))}, 200
+        return int(val)
 
 api.add_resource(FaceDetector, '')
