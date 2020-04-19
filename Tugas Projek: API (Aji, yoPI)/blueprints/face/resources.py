@@ -12,14 +12,13 @@ class FaceDetector(Resource):
     # file = [('imageFile', open('/home/alta18/Pictures/6-Ajay.png','rb'))]
     def post(self):
         parser = reqparse.RequestParser()
-        parser.add_argument('imageFile', location='files', default=None)
-        files = parser.parse_args()
+        parser.add_argument('img_path', location='args', default=None)
+        args = parser.parse_args()
         header = {'Apikey': self.key}
         payload = {}
         # file = [(('imageFile', open('/path/to/file','rb')))]
-        
-
-        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open('/home/alta18/Pictures/6-Ajay.png','rb'))]).json()
+        img_path = args['img_path']
+        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open(img_path,'rb'))]).json()
         val= res['PeopleWithAge'][0]['Age']
         return {'age':(int(val))}, 200
 
