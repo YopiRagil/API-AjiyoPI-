@@ -61,7 +61,8 @@ app = Flask(__name__)
 
 
 from blueprints.face.resources import bp_face
+from blueprints.music.resources import bp_music
 app.register_blueprint(bp_face, url_prefix='/face')
-
+app.register_blueprint(bp_music, url_prefix='/music')
 
 # db.create_all()
