@@ -9,15 +9,18 @@ api = Api(bp_face)
 class FaceDetector(Resource):
     url = "https://api.cloudmersive.com/image/face/detect-age"
     key = '8a0dc979-c5d3-439e-b183-b945a61de2ba'
-    file = [('imageFile', open('/home/alta18/Pictures/6-Ajay.png','rb'))]
+    # file = [('imageFile', open('/home/alta18/Pictures/6-Ajay.png','rb'))]
     def post(self):
+        parser = reqparse.RequestParser()
+        parser.add_argument('imageFile', location='files', default=None)
+        files = parser.parse_args()
         header = {'Apikey': self.key}
         payload = {}
         # file = [(('imageFile', open('/path/to/file','rb')))]
         
 
-        res = requests.request("POST", self.url, headers=header, data = payload, files = self.file).json()
+        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open('/home/alta18/Pictures/6-Ajay.png','rb'))]).json()
         val= res['PeopleWithAge'][0]['Age']
-        return {'age':(int(val))}
+        return {'age':(int(val))}, 200
 
 api.add_resource(FaceDetector, '')
