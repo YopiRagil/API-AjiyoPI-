@@ -1,8 +1,8 @@
 #app.py
 from flask_restful import Api
 from logging.handlers import RotatingFileHandler
-import logging, sys
-from blueprints import app, manager
+import logging, sys, json
+from blueprints import app
 
 api = Api(app, catch_all_404s=True)
 if __name__ == '__main__':
