@@ -1,0 +1,35 @@
+[2020-04-19 09:57:23,933] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 09:57:54,886] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:06:09,668] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:09:12,891] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:11:34,303] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:21:27,609] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:21:32,761] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:23:37,542] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:23:41,483] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:24:17,004] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:25:52,616] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:26:01,919] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:27:31,901] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:29:24,350] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 10:34:15,286] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:35:20,612] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 10:37:51,960] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 10:38:58,421] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 10:51:29,003] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 10:52:42,044] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:56:00,792] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:56:04,679] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:56:23,916] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 10:56:32,035] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:57:00,759] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:58:16,938] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:58:39,529] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:58:44,637] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 10:58:54,265] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 11:01:06,996] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 11:02:03,979] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 11:04:57,655] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 11:07:58,235] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:58} ERROR - 
+[2020-04-19 11:08:14,579] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 11:18:00,831] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
