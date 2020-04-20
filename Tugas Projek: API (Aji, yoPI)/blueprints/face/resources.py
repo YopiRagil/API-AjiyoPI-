@@ -23,11 +23,11 @@ class FaceDetector(Resource):
         payload = {}
         file_dir = '/home/alta18/Documents/PROJEK/Media/'
         
-        file = args['picture'].filename
+        # file = args['picture'].filename
         # img_path = args['img_path']
 
         
-        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open(file_dir+file,'rb'))]).json()   
+        res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', args['picture'])]).json()   
         # res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open('/home/alta18/Documents/PROJEK/Media/'+img_path,'rb'))]).json()
  
         val= res['PeopleWithAge'][0]['Age']
