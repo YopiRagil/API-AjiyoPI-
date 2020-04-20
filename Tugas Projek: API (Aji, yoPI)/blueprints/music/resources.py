@@ -9,7 +9,7 @@ api = Api(bp_music)
 
 
 class MusicSpotify(Resource):
-    spo_oauth = 'BQAe9Pka9yG6XS2EQJs_8vartMC6J8SR78WMx8SY5-HcYG4i63n4tUt3R4jxj_bupPbK7DQmfHg5yjjLt0S4vubEKaCn6afPoJcl9xHuZ_UVHbxQBR7hpQdzMvIvtI-5TLyUkXRDj6MzfABu81dEBWoyA2PxytJelO4C89M-QGRBEEUrKkKz3_svtyCPa3cViY-U6trjxIZSvj-zVY4fOWiJp2FNBXn1QVtkxEICP5xQG_lADv_K9F_zH36ywaZuBxsVYZQHooikHoVoq9L6BM91VE55yQ'
+    spo_oauth = 'BQA84iijblSwQ-zhA_1I70ToqrSGeShbXm1b137EQ6fWYa1z1DX99JP49bm_Dpt-s0g9gU9y3IeRYv74QVnxnrmrrehGLQdzw0YBP_85OkqRiz3vXD0obFDqcrTULof1VpEGk2ecj55sTNWGj3wMw3u1IE9UUyuJpDMSI-THgRCn74eHXV549J8UEwBmLEMKzx5ndJARr1Drwf_fdFWGpcshl7WGARVDijG-2aYJE7mBpns1lFziTUp5XE_2OvTpINnZG7p2ZSrE59X6N1-iPqfYN4Ynajyojw'
     spo_host = 'https://api.spotify.com/v1/search'
 
     payload = {}
