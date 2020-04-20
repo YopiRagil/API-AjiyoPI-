@@ -40,3 +40,79 @@
 [2020-04-19 17:22:18,020] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26.809814453125}}
 [2020-04-19 17:26:17,777] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
 [2020-04-19 17:38:20,523] {/home/alta18/Documents/PROJEK/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:53} WARNING - REQUEST_LOG	{"method": "POST", "code": "200 OK", "url": "/face?", "request": null, "response": {"age": 26}}
+[2020-04-19 21:08:09,644] {/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /music [GET]
+Traceback (most recent call last):
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py", line 21, in wrapper
+    verify_jwt_in_request()
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 32, in verify_jwt_in_request
+    jwt_data, jwt_header = _decode_jwt_from_request(request_type='access')
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 314, in _decode_jwt_from_request
+    raise NoAuthorizationError(errors[0])
+flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
+[2020-04-19 21:08:09,646] {/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:62} ERROR - REQUEST_LOG	{"method": "GET", "code": "500 INTERNAL SERVER ERROR", "uri": "/music?=&type=playlist&img_path=soleh.png", "request": null, "response": {"message": "Internal Server Error"}}
+[2020-04-19 21:10:27,551] {/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /music [GET]
+Traceback (most recent call last):
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py", line 21, in wrapper
+    verify_jwt_in_request()
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 32, in verify_jwt_in_request
+    jwt_data, jwt_header = _decode_jwt_from_request(request_type='access')
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_jwt_extended/view_decorators.py", line 314, in _decode_jwt_from_request
+    raise NoAuthorizationError(errors[0])
+flask_jwt_extended.exceptions.NoAuthorizationError: Missing Authorization Header
+[2020-04-19 21:10:27,552] {/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:62} ERROR - REQUEST_LOG	{"method": "GET", "code": "500 INTERNAL SERVER ERROR", "uri": "/music?=&type=playlist&img_path=soleh.png", "request": null, "response": {"message": "Internal Server Error"}}
+[2020-04-19 21:10:48,365] {/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /music [GET]
+Traceback (most recent call last):
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/music/resources.py", line 35, in get
+    name = result['playlists']['items'][0]['name']
+KeyError: 'playlists'
+[2020-04-19 21:10:48,368] {/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:62} ERROR - REQUEST_LOG	{"method": "GET", "code": "500 INTERNAL SERVER ERROR", "uri": "/music?=&type=playlist&img_path=soleh.png", "request": null, "response": {"message": "Internal Server Error"}}
+[2020-04-19 21:12:32,343] {/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:52} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "url": "/music?=&type=playlist&img_path=soleh.png", "request": null, "response": {"name": "1997 Hits", "link": "https://open.spotify.com/playlist/13fnZUSUl9WWSWeGPAxzn4"}}
+[2020-04-19 21:13:58,798] {/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py:1892} ERROR - Exception on /music [GET]
+Traceback (most recent call last):
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 468, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask/views.py", line 89, in view
+    return self.dispatch_request(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/apiproject/lib/python3.6/site-packages/flask_restful/__init__.py", line 583, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/music/resources.py", line 25, in get
+    umur = FaceDetector().post()
+  File "/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/face/resources.py", line 22, in post
+    res = requests.post(self.url, headers=header, data = payload, files = [('imageFile', open('/home/alta3/Pictures/'+img_path,'rb'))]).json()
+FileNotFoundError: [Errno 2] No such file or directory: '/home/alta3/Pictures/aji.jpg'
+[2020-04-19 21:13:58,800] {/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:62} ERROR - REQUEST_LOG	{"method": "GET", "code": "500 INTERNAL SERVER ERROR", "uri": "/music?=&type=playlist&img_path=aji.jpg", "request": null, "response": {"message": "Internal Server Error"}}
+[2020-04-19 21:14:17,990] {/home/alta3/Documents/API_Aji_yoPI/API-AjiyoPI-/Tugas Projek: API (Aji, yoPI)/blueprints/__init__.py:52} WARNING - REQUEST_LOG	{"method": "GET", "code": "200 OK", "url": "/music?=&type=playlist&img_path=aji.jpeg", "request": null, "response": {"name": "1996 Hits", "link": "https://open.spotify.com/playlist/3ZT4IaBvRmpzSiy9RdltlJ"}}
