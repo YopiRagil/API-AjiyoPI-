@@ -6,4 +6,5 @@ flask-migrate
 flask-script
 flask-jwt-extended
 requests
-werkzeug
+pytest
+werkzeug==0.16.0

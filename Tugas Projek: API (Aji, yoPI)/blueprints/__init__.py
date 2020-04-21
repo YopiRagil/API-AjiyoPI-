@@ -26,8 +26,10 @@ def internal_required(fn):
             return fn(*args, **kwargs)
     return wrapper
 
-if os.environ.get('FLASK_NEW', 'Production') == "Production":
+if os.environ.get('FLASK_ENV', 'Production') == "Production":
     app.config.from_object(config.ProductionConfig)
+elif os.environ.get('FLASK_ENV', 'Production') == "Test":
+    app.config.from_object(config.TestConfig)
 else:
     app.config.from_object(config.DevelopmentConfig)
 
