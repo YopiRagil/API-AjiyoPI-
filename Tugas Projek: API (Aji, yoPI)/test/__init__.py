@@ -5,7 +5,6 @@ import logging
 from flask import Flask, request, json
 from blueprints import app, db
 from app import cache
-from blueprints.book.model import Book
 from blueprints.user.model import User
 from blueprints.client.model import Client
 import uuid, hashlib
@@ -32,10 +31,6 @@ def init_database():
     db.session.add(client)
     db.session.add(clientnonInternal)
     db.session.commit()
-
-    book=Book(title="Kisah Hidup Otong", isbn="12-33453-2134-4553", writer="Kakek Sugiono")
-    db.session.add(book)
-    db.session.commit()
     
     user=User(client_id=1, user_name="Little Joni", age=23, sex="male")
     db.session.add(user)
@@ -56,8 +51,6 @@ def create_token():
         #do request
         req = call_client(request)
         res = req.get('/auth', query_string=data)
-                    #    data=json.dumps(data),
-                    #    content_type='application/json')
         
         res_json =json.loads(res.data)
         logging.warning('RESULT:%s', res_json)
@@ -79,11 +72,10 @@ def create_token_nonin():
             'client_key':'ragil',
             'client_secret':'password',
         }
-        #do request
+
         req = call_client(request)
         res = req.get('/auth', query_string=data)
-                    #    data=json.dumps(data),
-                    #    content_type='application/json')
+
         
         res_json =json.loads(res.data)
         logging.warning('RESULT:%s', res_json)
