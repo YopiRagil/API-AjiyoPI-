@@ -3,7 +3,9 @@ from flask_restful import Api
 from logging.handlers import RotatingFileHandler
 import logging, sys, json
 from blueprints import app
+from werkzeug.contrib.cache import SimpleCache
 
+cache = SimpleCache()
 api = Api(app, catch_all_404s=True)
 if __name__ == '__main__':
     try:
