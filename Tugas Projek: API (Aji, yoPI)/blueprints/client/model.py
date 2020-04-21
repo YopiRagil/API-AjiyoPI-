@@ -1,40 +1,42 @@
-from blueprints import db
+# from app import db
 from flask_restful import fields
-from sqlalchemy import func
+from sqlalchemy.sql import func
+from datetime import datetime
+from blueprints import db
 from sqlalchemy.sql.expression import text
 
-from sqlalchemy import Table, Column, Integer, ForeignKey
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import backref
-
-class Clients(db.Model):
-    __tablename__ = "clients"
+class Client(db.Model):
+    __tablename__ = "client"
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     client_key = db.Column(db.String(30), unique=True, nullable=False)
-    client_secret = db.Column(db.String(255), nullable=True)
-    status = db.Column(db.Integer, nullable=True, default=0)
+    client_secret = db.Column(db.String(1000))
+    status = db.Column(db.Integer, default=0)
     salt = db.Column(db.String(255))
-    users = db.relationship('Users', backref='clients', lazy=True, uselist=False)
-
-    response_fields ={
-        'id': fields.Integer,
-        'client_key': fields.String,
-        'client_secret': fields.String,
-        'status': fields.Integer
+    created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
+    updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
+    # deleted_at = db.Column(db.DateTime, server_default=text('0'))
+    
+    response_fields = {
+        'id' : fields.Integer,
+        'client_key' : fields.String,
+        'client_secret' : fields.String,
+        'status' : fields.Boolean(),
+        'salt' : fields.String
     }
-
-    jwt_claims_fields ={
-        'id': fields.Integer,
-        'client_key': fields.String,
-        'status': fields.Integer
+    
+    jwt_calims_fields = {
+        'id' : fields.Integer,
+        'client_key' : fields.String,
+        'status' : fields.Boolean,
+        'salt' : fields.String
     }
-
-    def __init__(self, client_key, hash, status, salt):
+    
+    def __init__(self, client_key, client_secret, status, salt):
         self.client_key = client_key
-        self.client_secret = hash
-        self.status = status
+        self.client_secret = client_secret
+        self.status =status
         self.salt = salt
-
+        
+        
     def __repr__(self):
-        return '<Client %r>'% self.id
+        return '<Client %s>' % self.id

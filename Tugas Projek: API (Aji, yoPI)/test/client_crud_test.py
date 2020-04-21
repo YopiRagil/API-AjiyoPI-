@@ -1,6 +1,7 @@
 import json
 from . import app, client, cache, create_token, create_token_nonin, init_database
 
+
 class TestClientCrud():
     def test_client_list_get(self, client, init_database):
         token = create_token()
@@ -73,7 +74,7 @@ class TestClientCrud():
     def test_client_post(self, client, init_database):
         token = create_token()
         data={
-            "client_key": "alul",
+            "client_key": "ajay",
             "client_secret": "ntap",
             "status": 0
             }
@@ -132,4 +133,11 @@ class TestClientCrud():
         
         res_json = json.loads(res.data)
         assert res.status_code == 200
+        
+        
+        
+        
+        
+
+   
         

@@ -1,120 +1,118 @@
 import json
 from flask import Blueprint
-from flask_restful import Resource, Api, reqparse, marshal, inputs
-from blueprints import db, app
+from flask_restful import Api, reqparse, Resource, marshal
+from .model import Client
+from . import *
+from blueprints import db, app, internal_required
 from sqlalchemy import desc
 import hashlib, uuid
-from blueprints import internal_required
-
-from .model import Clients
 
 bp_client = Blueprint('client', __name__)
 api = Api(bp_client)
 
+class ClientResource(Resource):
 
-class ClientsResource(Resource):
     @internal_required
-    def get(self, id=None):
-        qry = Clients.query.get(id)
-
+    def get(self, id):
+        qry = Client.query.get(id)
         if qry is not None:
-            return marshal(qry, Clients.response_fields), 200, {'Content-Type': 'application/json'}
-        return {'status': 'NOT_FOUND'}, 404, {'Content-Type': 'application/json'}
+            return marshal(qry, Client.response_fields), 200, {
+                'Content-Type': 'application/json'}
+        return {'status': 'NOT_FOUND'}, 404
 
     @internal_required
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('client_key', location='json', required=True)
-        parser.add_argument('client_secret', location='json')
-        parser.add_argument('status', location='json', type=int)
-        args = parser.parse_args()
-
+        parser.add_argument('client_secret', location='json', required=True)
+        parser.add_argument('status', location='json', type = bool)
+        
+        data = parser.parse_args()
+        
         salt = uuid.uuid4().hex
-        encoded = ('%s%s' % (args['client_secret'], salt)).encode('utf-8')
-        hash_pass = hashlib.sha512(encoded).hexdigest()
-
-        result = Clients(args['client_key'], hash_pass, args['status'], salt)
-
-        db.session.add(result)
+        encode = ('%s%s' % (data['client_secret'], salt)).encode('utf-8')
+        hash_pass = hashlib.sha512(encode).hexdigest()
+        
+        client = Client(data['client_key'], hash_pass, data['status'], salt)
+        db.session.add(client)
         db.session.commit()
-
-        return marshal(result, Clients.response_fields), 200, {'Content-Type': 'application/json'}
+        
+        app.logger.debug('DEBUG :%s', client)
+                
+        return marshal(client, Client.response_fields), 200,  {'Content-Type': 'application/json'}
 
     @internal_required
     def put(self, id):
         parser = reqparse.RequestParser()
-        parser.add_argument('id', location='json', type=int, required=True)
         parser.add_argument('client_key', location='json', required=True)
-        parser.add_argument('client_secret', location='json')
-        parser.add_argument('status', location='json', type=int)
-        args = parser.parse_args()
-
-        qry= Clients.query.get(id)
+        parser.add_argument('client_secret', location='json', required=True)
+        parser.add_argument('status', location='json')
+        parser.add_argument('salt', location='json')
+        
+        data = parser.parse_args()
+        qry = Client.query.get(id)
         if qry is None:
-            return {'status': 'NOT_FOUND'}, 404, {'Content-Type': 'application/json'}
-
+            return {'status': 'NOT_FOUND'}, 404
+        
         salt = uuid.uuid4().hex
-        encoded = ('%s%s' % (args['client_secret'], salt)).encode('utf-8')
-        hash_pass = hashlib.sha512(encoded).hexdigest()
-
-        qry.client_key = args['client_key']
+        encode = ('%s%s' % (data['client_secret'], salt)).encode('utf-8')
+        hash_pass = hashlib.sha512(encode).hexdigest()
+        
+        qry.client_key = data['client_key']
         qry.client_secret = hash_pass
-        qry.status = args['status']
+        qry.status = data['status']
         qry.salt = salt
         db.session.commit()
-
-        return marshal(qry, Clients.response_fields), 200, {'Content-Type': 'application/json'}
+        
+        return marshal(qry, Client.response_fields), 200
     
     @internal_required
     def delete(self, id):
-        qry = Clients.query.get(id)
+        qry = Client.query.get(id)
         if qry is None:
-            return {'status': 'NOT_FOUND'}, 404, 
-
+            return {'status': 'NOT_FOUND'}, 404
+        
         db.session.delete(qry)
-        db.session.commit()
-        return {"status": "Deleted"}, 200, {'Content-Type': 'application/json'}
+        db.session.commit() 
+        
 
-    @internal_required
-    def patch(self):
-        return 'Not yet implemented', 501, {'Content-Type': 'application/json'}
 
 
 class ClientList(Resource):
-    @internal_required
+    
+    def __init__(self):
+        pass
+    
+    # @internal_required
     def get(self):
         parser = reqparse.RequestParser()
         parser.add_argument('p', type=int, location='args', default=1)
         parser.add_argument('rp', type=int, location='args', default=25)
-        parser.add_argument('orderby', location='args', help='invalid status', choices=(
-            'client_key',
-            'status'
-        ))
-        parser.add_argument('sort', location='args', help='invalid status', choices=('asc', 'desc'))
-        
+        parser.add_argument('client_key', location='args', help='invalid status', type=str)
+        parser.add_argument('orderby', location='args', help='invalid orderby value', choices=('client_key', 'status'))
+        parser.add_argument('sort', location='args', help='invalid sort value', choices=('desc', 'asc'))
+        parser.add_argument('status', location='args', choices=('true', 'false', 'True', 'False'))
+
         args = parser.parse_args()
-
-        offset = (args['p'] * args['rp']) - args['rp']
-
-        qry = Clients.query
-
+        
+        offset = (args['p'] * args['rp'] - args['rp'])
+        qry = Client.query
+        
+        if args['client_key'] is not None:
+            qry = qry.filter_by(client_key=args['client_key'])
+        
         if args['orderby'] is not None:
-            if args['orderby'] == 'client_key':
+            if args ['orderby'] == 'client_key':
                 if args['sort'] == 'desc':
-                    qry = qry.order_by(desc(Clients.client_key))
+                    qry = qry.order_by(desc(Client.client_key))
                 else:
-                    qry = qry.order_by(Clients.client_key)
-            elif args['orderby'] == 'status':
-                if args['sort'] == 'desc':
-                    qry = qry.order_by(desc(Clients.status))
-                else:
-                    qry = qry.order_by(Clients.status)
-
+                    qry = qry.order_by(Client.client_key)
+                    
         rows = []
         for row in qry.limit(args['rp']).offset(offset).all():
-            rows.append(marshal(row, Clients.response_fields))
-
-        return rows, 200, {'Content-Type': 'application/json'}
-
+            rows.append(marshal(row, Client.response_fields))
+            
+        return rows, 200
+ ###Routes
 api.add_resource(ClientList, '', '/list')
-api.add_resource(ClientsResource, '', '/<id>')
+api.add_resource(ClientResource, '', '/<id>')
