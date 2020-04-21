@@ -16,10 +16,6 @@ class Users(db.Model):
     age = db.Column(db.Integer, nullable=True)
     sex = db.Column(db.String(50), nullable=True)
     client_id = db.Column(db.Integer, db.ForeignKey('clients.id'))
-    # created_at = db.Column(db.DateTime(timezone=True), server_default = func.now())
-    # updated_at = db.Column(db.DateTime(timezone=True), onupdate = func.now())
-    # deleted_at = db.Column(db.DateTime, server_default=text("0"))
-    rent = db.relationship('Rents', backref='users', lazy=True, uselist=False)
 
     response_fields ={
         'id': fields.Integer,
