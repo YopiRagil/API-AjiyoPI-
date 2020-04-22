@@ -5,7 +5,6 @@ from blueprints.face.resources import FaceDetector
 import datetime
 from blueprints import app, internal_required
 
-
 bp_music = Blueprint('music', __name__)
 api = Api(bp_music)
 

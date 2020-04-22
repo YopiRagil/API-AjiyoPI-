@@ -37,7 +37,7 @@ class UserResource(Resource):
             
             return marshal (user, User.response_fields), 200,  {'Content-Type': 'application/json'}
         except Exception as e:
-            print (e)
+            return {'status': 'Eror'}, 403
 
     @internal_required
     def put(self, id):

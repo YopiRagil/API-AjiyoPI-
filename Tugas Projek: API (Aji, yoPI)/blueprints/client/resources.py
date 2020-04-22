@@ -12,7 +12,7 @@ api = Api(bp_client)
 
 class ClientResource(Resource):
 
-    # @internal_required
+    @internal_required
     def get(self, id):
         qry = Client.query.get(id)
         if qry is not None:
@@ -20,7 +20,7 @@ class ClientResource(Resource):
                 'Content-Type': 'application/json'}
         return {'status': 'NOT_FOUND'}, 404
 
-    # @internal_required
+    @internal_required
     def post(self):
         parser = reqparse.RequestParser()
         parser.add_argument('client_key', location='json', required=True)
@@ -41,7 +41,7 @@ class ClientResource(Resource):
                 
         return marshal(client, Client.response_fields), 200,  {'Content-Type': 'application/json'}
 
-    # @internal_required
+    @internal_required
     def put(self, id):
         parser = reqparse.RequestParser()
         parser.add_argument('client_key', location='json', required=True)
@@ -66,7 +66,7 @@ class ClientResource(Resource):
         
         return marshal(qry, Client.response_fields), 200
     
-    # @internal_required
+    @internal_required
     def delete(self, id):
         qry = Client.query.get(id)
         if qry is None:
