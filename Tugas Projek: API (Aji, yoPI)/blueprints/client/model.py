@@ -20,14 +20,14 @@ class Client(db.Model):
         'id' : fields.Integer,
         'client_key' : fields.String,
         'client_secret' : fields.String,
-        'status' : fields.Boolean(),
+        'status' : fields.Integer(),
         'salt' : fields.String
     }
     
     jwt_calims_fields = {
         'id' : fields.Integer,
         'client_key' : fields.String,
-        'status' : fields.Boolean,
+        'status' : fields.Integer,
         'salt' : fields.String
     }
     

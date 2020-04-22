@@ -9,7 +9,6 @@ from blueprints import app, internal_required
 bp_music = Blueprint('music', __name__)
 api = Api(bp_music)
 
-
 class MusicSpotify(Resource):
     spo_oauth = app.config['KEY_MUSIK']
     spo_host = app.config['MUSIK']

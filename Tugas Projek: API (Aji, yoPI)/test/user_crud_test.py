@@ -23,6 +23,38 @@ class TestUserCrud():
         res_json = json.loads(res.data)
         assert res.status_code == 404
 
+    def test_user_put_fail(self, client, init_database):
+        token = create_token()
+        data = {
+                "name": "Jane",
+                "age": 20,
+                "sex": "Female",
+                "client_id": 1
+                }
+        res = client.put('/user/', 
+                        data=json.dumps(data),
+                        headers={'Authorization': 'Bearer ' + token},
+                        content_type='application/json'
+                        )
+        res_json = json.loads(res.data)
+        assert res.status_code == 404
+
+    def test_user_put(self, client, init_database):
+        token = create_token()
+        data = {
+                "name": "Jane",
+                "age": 20,
+                "sex": "male",
+                "client_id": 2
+                }
+        res = client.put('/user/1', 
+                        data=json.dumps(data),
+                        headers={'Authorization': 'Bearer ' + token},
+                        content_type='application/json'
+                        )
+        res_json = json.loads(res.data)
+        assert res.status_code == 200
+
     def test_user_post(self, client, init_database):
         token = create_token()
         data = {
@@ -69,37 +101,7 @@ class TestUserCrud():
         res_json = json.loads(res.data)
         assert res.status_code == 200
         
-    def test_user_put_fail(self, client, init_database):
-        token = create_token()
-        data = {
-                "name": "Jane",
-                "age": 20,
-                "sex": "Female",
-                "client_id": 1
-                }
-        res = client.put('/user/', 
-                        data=json.dumps(data),
-                        headers={'Authorization': 'Bearer ' + token},
-                        content_type='application/json'
-                        )
-        res_json = json.loads(res.data)
-        assert res.status_code == 404
-
-    def test_user_put(self, client, init_database):
-        token = create_token()
-        data = {
-                "name": "Jane",
-                "age": 20,
-                "sex": "male",
-                "client_id": 1
-                }
-        res = client.put('/user/1', 
-                        data=json.dumps(data),
-                        headers={'Authorization': 'Bearer ' + token},
-                        content_type='application/json'
-                        )
-        res_json = json.loads(res.data)
-        assert res.status_code == 200
+    
 
     def test_user_delete(self, client, init_database):
         token = create_token()

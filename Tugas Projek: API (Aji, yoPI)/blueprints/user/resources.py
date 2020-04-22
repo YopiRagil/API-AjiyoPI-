@@ -52,14 +52,14 @@ class UserResource(Resource):
         qry = User.query.get(id)
         if qry is None:
             return {'status': 'NOT_FOUND'}, 404
-        
-        qry.name = args['name']
-        qry.age = args['age']
-        qry.sex = args['sex']
-        qry.client_id = args['client_id']
-        db.session.commit()
-        
-        return marshal(qry, User.response_fields), 200
+        else:
+            qry.name = args['name']
+            qry.age = args['age']
+            qry.sex = args['sex']
+            qry.client_id = args['client_id']
+            db.session.commit()
+            
+            return marshal(qry, User.response_fields), 200
         
     @internal_required
     def delete(self, id):

@@ -16,7 +16,7 @@ class TestClientCrud():
         token = create_token()
         res = client.get('/client',
                          headers={'Authorization': 'Bearer ' + token},
-                         query_string={'status':0},
+                         query_string={'client_key':'ragil'},
                          content_type = 'application/json')
         
         res_json = json.loads(res.data)
