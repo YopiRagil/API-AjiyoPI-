@@ -51,7 +51,7 @@ class TestClientCrud():
                          content_type = 'application/json')
         
         res_json = json.loads(res.data)
-        assert res.status_code == 403
+        assert res.status_code == 200
         
     def test_client_get_byid(self, client, init_database):
         token = create_token()
@@ -115,7 +115,8 @@ class TestClientCrud():
         
         res_json = json.loads(res.data)
         assert res.status_code == 404
-        
+    
+    
     def test_client_delete_fail(self, client, init_database):
         token = create_token()
         res = client.delete('/client/9',
@@ -125,13 +126,20 @@ class TestClientCrud():
         res_json = json.loads(res.data)
         assert res.status_code == 404
     
+    #delete user dulu karena terpaut foreign key dari client jadi pasti gagal cuy
     def test_client_delete(self, client, init_database):
         token = create_token()
-        res = client.delete('/client/1',
+        res = client.delete('/user/1', 
+                            headers={'Authorization':'Bearer ' + token}, 
+                            content_type='application/json'
+                            )
+        res_json = json.loads(res.data)
+                
+        resdel = client.delete('/client/1',
                          headers={'Authorization': 'Bearer ' + token},
                          content_type = 'application/json')
         
-        res_json = json.loads(res.data)
+        res_json = json.loads(resdel.data)
         assert res.status_code == 200
         
         

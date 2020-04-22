@@ -17,10 +17,10 @@ class TestFaceCrud():
                 return self.json_data
 
         if len(args) > 0:
-            if args[0] == app.config['MUSIK']:
+            if args[0] == app.config['FACE']:
                 return MockResponse(
                                     {
-                                        "Successful": true,
+                                        "Successful": True,
                                         "PeopleWithAge": [
                                             {
                                             "FaceLocation": 
@@ -45,11 +45,11 @@ class TestFaceCrud():
     @mock.patch('requests.post', side_effect=mocked_requests_post)
     def test_check_face(self, post_mock, client):
         token = create_token()
-        dirname = '/home/alta18/Pictures/'
-        file_path = os.path.join(os.path.dirname(__file__), '/home/alta18/Pictures','rb')
+        # dirname = '/home/alta18/Pictures/'
+        file_path = os.path.join(os.path.dirname(__file__), '3-Me.png')
         with open('/home/alta18/Pictures/3-Me.png', 'rb') as picture: 
             sIO = BytesIO(picture.read())
-        data = {"picture": (sIO, "/home/alta18/Pictures/3-Me.png")}
+        data = {"picture": (sIO, "3-Me.png")}
 
         res = client.post('/face', 
                         data = data,
@@ -57,14 +57,7 @@ class TestFaceCrud():
                         # files =data['picture'],
                         content_type='multipart/form-data')
         
-        # res = client.post('/face', 
-        #                     headers={'Authorization': 'Bearer ' + token},
-        #                     data = payload, 
-        #                     files = [('imageFile', open('/home/alta18/Pictures/3-Me.png','rb'))],
-        #                     content_type='multipart/form-data'
-        #                 )
 
-        
         res_json = json.loads(res.data)
         assert res.status_code == 200
         
